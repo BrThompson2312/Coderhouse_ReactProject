@@ -1,0 +1,21 @@
+.menuCommerce nav ul {
+    list-style-type: none;
+}
+
+.menuCommerce nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.menuCommerce nav ul li a:hover {
+    background: red;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.menuCommerce nav ul li a img {
+    width: 20px;
+    color: white;
+}
