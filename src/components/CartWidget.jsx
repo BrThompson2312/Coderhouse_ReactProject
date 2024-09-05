@@ -1,13 +1,11 @@
 import cart from '../imgs/carrito.svg';
 
-import { Link } from "react-router-dom";
-
 export default function CartWidget() {
     return (
-        <a>
-            <img src={cart}/>
+        <>
+            <img src={cart} alt="imgCarrito"/>
             <p className="m-0">Carrito</p>
-            <span className="cartNotification">1</span>
-        </a>
+            <span>1</span>
+        </>
     )
 }

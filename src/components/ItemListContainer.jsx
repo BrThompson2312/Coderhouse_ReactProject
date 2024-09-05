@@ -1,17 +1,52 @@
 import Item from "./Item";
+import listaProductos from "../data.js";
+import { useParams } from "react-router-dom";
 
-import mouse from "../imgs/mouse.jpeg";
-import auto from "../imgs/auto.jpeg";
+export default function ItemListContainer() {
 
-export default function ItemListContainer(props) {
+    let itemCategory = useParams();
 
-    return (
-        <div className="container containerProducts">
-            <h1>{props.msg}</h1>
-            <section className="containerItems container d-flex gap-5">
-                <Item img={mouse} title="Mouse"/>
-                <Item img={auto} title="Auto"/>
-            </section>
-        </div>
-    )
+    if (Object.keys(itemCategory).length == 0) {
+        return (
+            <>
+                <h1>Catálogo</h1>
+                <section className="containerItems gap-5">
+    
+                    { listaProductos.map((producto) => {
+                        return (
+                            <Item 
+                                id={producto.id} 
+                                img={producto.imagen} 
+                                title={producto.nombre} 
+                            />
+                            )
+                        }) 
+                    }
+    
+                </section>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h1>Catálogo</h1>
+                <section className="containerItems gap-5">
+    
+                    { listaProductos.map((producto) => {
+                        if (producto.id == itemCategory.categoryId) {
+                            return (
+                                <Item 
+                                    id={producto.id} 
+                                    img={producto.imagen} 
+                                    title={producto.nombre} 
+                                />
+                            )
+                        }
+                    }) }
+    
+                </section>
+            </>
+        )
+    }
+    
 }

@@ -1,5 +1,6 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url("imgs/bg.png");
 }
 
 .brand a {
@@ -17,7 +18,7 @@ body {
 }
 
 .menuCommerce nav ul li a:hover {
-    background: red;
+    background: darkgreen;
     color: white;
     border-radius: 10px;
     font-weight: bold;
@@ -25,13 +26,13 @@ body {
     transition: all .3s;
 }
 
-.menuCommerce nav ul li a:has(img) {
+/* .menuCommerce nav ul li a:has(img) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2px;
     padding: 2px !important;
-}
+} */
 
 .menuCommerce nav ul li a img {
     width: 20px;
@@ -42,11 +43,73 @@ footer {
     background: #141414;
     color: white;
     padding: 5px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
-.containerItems img {
-    width: 100%;
+.containerItems {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: center;
+}
+
+.productDetails {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    margin: 1em;
+}
+
+.productDetails article {
+    grid-column-start: 2;
+}
+
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cartNotification a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    position: relative;
+}
+
+.cartNotification a span {
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.itemCategories {
+    background: #0d492d;
+    width: 50%;
+    margin: 0 auto;
+    color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.itemCategories ul {
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.itemCategories ul li:nth-child(1) {
+    margin-left: 20px;
+}
+.itemCategories ul li {
+    margin-right: 20px;
+}
+
+.itemCategories ul a {
+    color: white;
+    text-decoration: none;
+}
+.itemCategories ul a:hover {
+    color: red;
+    font-weight: bold;
 }
