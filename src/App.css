@@ -51,15 +51,6 @@ footer {
     justify-content: center;
 }
 
-.productDetails {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    margin: 1em;
-}
-
-.productDetails article {
-    grid-column-start: 2;
-}
 
 .container {
     margin-top: 10px;
@@ -112,4 +103,34 @@ footer {
 .itemCategories ul a:hover {
     color: red;
     font-weight: bold;
+}
+
+
+.productDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.productDetails {
+    text-align: start;
+}
+
+.productDetails figure img {
+    height: 200px;
+}
+
+.productDetails table {
+    width: 100%;
+    border: 1px solid black;
+    table-layout: fixed;
+    border-collapse: separate;
+}
+
+.productDetails table th, 
+.productDetails table td {
+    padding: 10px;
+    border: 1px solid black;
 }

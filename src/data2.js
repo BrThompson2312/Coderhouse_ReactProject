@@ -1,5 +1,7 @@
 import mouse from "./imgs/categories/mouse/mouse.jpeg";
-import auto from "./imgs/categories/car/auto.jpeg";
+import mouse2 from "./imgs/categories/mouse/mouse2.png";
+import car from "./imgs/categories/car/auto.jpeg";
+import car2 from "./imgs/categories/car/auto2.png";
 
 export const listaProductos = [
     {
@@ -9,13 +11,13 @@ export const listaProductos = [
             {
                 id: 1,
                 name: "Car1",
-                image: auto,
+                image: car,
                 description: "Soy un auto xd"
             },
             {
                 id: 2,
                 name: "Car2",
-                image: auto,
+                image: car2,
                 description: "Soy un auto xd"
             }
         ]
@@ -33,7 +35,7 @@ export const listaProductos = [
             {
                 id: 2,
                 name: "Mouse2",
-                image: mouse,
+                image: mouse2,
                 description: "Mouse Logitech"
             }
         ]
