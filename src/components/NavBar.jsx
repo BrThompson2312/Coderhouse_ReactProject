@@ -1,8 +1,10 @@
 import CartWidget from "./CartWidget";
-
-import { listaProductos } from "../data2.js";
-
+import listaProductos from "../data.js";
 import { Link } from "react-router-dom";
+
+const categories = listaProductos.map((producto) => producto.category);
+
+const filteredCategories = categories.filter((item, index) => categories.indexOf(item) === index);
 
 export default function Navbar() {
     return (
@@ -34,9 +36,9 @@ export default function Navbar() {
             <nav className="itemCategories">
                 <ul>
                     {
-                        listaProductos.map((product => {
+                        listaProductos.map((producto => {
                             return (
-                                <li><Link to={`category/${product.idCategory}`}>{product.category}</Link></li>
+                                <li><Link to={`category/${producto.idCategory}`}>{producto.category}</Link></li>
                             )
                         }))
                     }
