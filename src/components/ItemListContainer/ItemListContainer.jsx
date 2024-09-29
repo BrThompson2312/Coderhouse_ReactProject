@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 // Styles
 import "./style.css";
+// Firebase modules
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 export default function ItemListContainer() {
 
@@ -16,20 +18,37 @@ export default function ItemListContainer() {
 
     const params = useParams();
 
+    // const [ itemsFirestore, setItemsFirestore ] = useState([]);
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         fetch('https://fakestoreapi.com/products')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setItems(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(data => {
+    //             console.log(data);
+    //             setError(true);
+    //         })
+    //     }, 3000);
+    // }, []);
+
     useEffect(() => {
-        setTimeout(() => {
-            fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(data => {
-                setItems(data);
-                setLoading(false);
-            })
-            .catch(data => {
-                console.log(data);
-                setError(true);
-            })
-        }, 3000);
+        const bd = getFirestore();
+        const itemsCollection = collection(bd, "items");
+
+        getDocs(itemsCollection)
+        .then((snapshot) => {
+            setItems(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+            setLoading(false);
+        })
+        .catch(() => {
+            setError(true);
+        })
     }, []);
+    console.log(items);
 
     return (
         <section className="">

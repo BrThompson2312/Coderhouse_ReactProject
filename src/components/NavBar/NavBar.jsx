@@ -1,40 +1,52 @@
+// Components
 import LiSection from "./LiSection.jsx";
 import CategoryList from "./CategoryList";
 import { NavLink } from "react-router-dom";
-// import listaProductos from "../../data/data2.js";
-import "./style.css";
-
+// Methods
 import { useState, useEffect } from "react";
-
-// const categories = listaProductos.map((producto) => producto.category);
-// const filteredCategories = categories.filter((item, index) => categories.indexOf(item) === index);
-
+// Styles
+import "./style.css";
+// Firebase modules
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 export default function Navbar() {
 
     let categories = [];
-
     const [ loading, setLoading ] = useState(true);
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => {
-            fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(data => {
-                
-                categories = data.map((el) => el["category"])
-                categories = categories.filter((el, index) => categories.indexOf(el) === index)
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         fetch('https://fakestoreapi.com/products')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             categories = data.map((el) => el["category"])
+    //             categories = categories.filter((el, index) => categories.indexOf(el) === index)
+    //             setItems(categories);
+    //             setLoading(false);
+    //         })
+    //         .catch(data => {
+    //             console.log(data);
+    //             setError(true);
+    //         })
+    //     }, 3000);
+    // }, []);
 
-                setItems(categories);
-                setLoading(false);
-            })
-            .catch(data => {
-                console.log(data);
-                setError(true);
-            })
-        }, 3000);
+    useEffect(() => {
+        const bd = getFirestore();
+        const itemsCollection = collection(bd, "items");
+
+        getDocs(itemsCollection)
+        .then((snapshot) => {
+            categories = snapshot.docs.map((doc) => doc.data().category);
+            categories = categories.filter((el, index) => categories.indexOf(el) === index);
+            setItems(categories)
+            setLoading(false);
+        })
+        .catch(() => {
+            setError(true);
+        })
     }, []);
 
     return (
