@@ -1,0 +1,20 @@
+.Item {
+    position: relative;
+}
+
+.FavoriteIcon {
+    background: red;
+    color: white;
+    border-radius: 100%;
+    padding: 5px;
+    position: absolute;
+    top: 0.3em;
+    right: 0.3em;
+    transition: background .3s, color .3s;
+}
+
+.FavoriteIcon:hover {
+    cursor: pointer;
+    background: white;
+    color: red;
+}

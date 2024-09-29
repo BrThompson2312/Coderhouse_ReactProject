@@ -1,0 +1,15 @@
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: loading .3s linear infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotateZ(90deg);
+    }
+    to {
+        transform: rotateZ(180deg);
+    }
+}

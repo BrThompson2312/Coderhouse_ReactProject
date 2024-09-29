@@ -1,0 +1,16 @@
+.Error {
+}
+
+.Error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Error > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: red;
+}
