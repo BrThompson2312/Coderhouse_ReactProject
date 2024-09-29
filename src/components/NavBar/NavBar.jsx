@@ -1,3 +1,6 @@
+// Context
+import { useContext } from "react";
+import { Contexto } from "../../Context/Context";
 // Components
 import LiSection from "./LiSection.jsx";
 import CategoryList from "./CategoryList";
@@ -11,27 +14,13 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 export default function Navbar() {
 
+    // const {nombre} = useContext(Contexto)
+    console.log(useContext(Contexto))
+
     let categories = [];
     const [ loading, setLoading ] = useState(true);
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(false);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         fetch('https://fakestoreapi.com/products')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             categories = data.map((el) => el["category"])
-    //             categories = categories.filter((el, index) => categories.indexOf(el) === index)
-    //             setItems(categories);
-    //             setLoading(false);
-    //         })
-    //         .catch(data => {
-    //             console.log(data);
-    //             setError(true);
-    //         })
-    //     }, 3000);
-    // }, []);
 
     useEffect(() => {
         const bd = getFirestore();

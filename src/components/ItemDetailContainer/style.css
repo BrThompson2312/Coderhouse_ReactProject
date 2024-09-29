@@ -1,15 +1,3 @@
-.detailProduct {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-}
-
-.detailProduct div > div {
-    border-left: 1px solid darkgray;
-    padding: 1em;
-}
-
 .detailProduct span {
     color: darkred;
     font-weight: bold;

@@ -1,19 +1,30 @@
+// Context
+import { useContext } from "react";
+import { Contexto } from "../../Context/Context";
+
 export default function ItemDetail({item}) {
+
+    console.log(useContext(Contexto))
 
     const { id, title, price, category, description, image } = item;
     
     return (
-        <div className="detailProduct">
-            <figure>
-                <img src={image} />
-            </figure>
+        <article className="detailProduct">
             <div>
-                <div><span>Id: </span>{id}</div>
-                <div><span>Nombre: </span>{title}</div>
-                <div><span>Precio: </span>{price}</div>
-                <div><span>Categoria: </span>{category}</div>
-                <div><span>Description: </span>{description}</div>
+                <figure>
+                    <img className="img-fluid" src={image} />
+                </figure>
+                <div>
+                    <p><span>Id: </span>{id}</p>
+                    <p><span>Nombre: </span>{title}</p>
+                    <p><span>Precio: </span>{price}</p>
+                    <p><span>Categoria: </span>{category}</p>
+                    <p><span>Description: </span>{description}</p>
+                </div>
             </div>
-        </div>
+            <div>
+                <button onClick={useContext(Contexto).AddCount} className="btn bg-success text-white">Agregar al carrito</button>
+            </div>
+        </article>
     )
 }

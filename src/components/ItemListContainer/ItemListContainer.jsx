@@ -18,23 +18,6 @@ export default function ItemListContainer() {
 
     const params = useParams();
 
-    // const [ itemsFirestore, setItemsFirestore ] = useState([]);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         fetch('https://fakestoreapi.com/products')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setItems(data);
-    //             setLoading(false);
-    //         })
-    //         .catch(data => {
-    //             console.log(data);
-    //             setError(true);
-    //         })
-    //     }, 3000);
-    // }, []);
-
     useEffect(() => {
         const bd = getFirestore();
         const itemsCollection = collection(bd, "items");
@@ -48,7 +31,6 @@ export default function ItemListContainer() {
             setError(true);
         })
     }, []);
-    console.log(items);
 
     return (
         <section className="">
