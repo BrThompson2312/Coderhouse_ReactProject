@@ -11,7 +11,7 @@ export default function CartWidget() {
 
     return (
         <li className="cartNotification">
-            <NavLink>
+            <NavLink to="cart">
                 <img src={imagenCarrito} alt="imgCarrito"/>
                 <p className="m-0">Cart</p>
                 <span>{count.length}</span>

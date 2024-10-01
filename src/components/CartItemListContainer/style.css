@@ -1,5 +1,6 @@
 .DetailCartItem {
     margin-bottom: 1em;
+
 }
 
 .DetailCartItem p {
@@ -17,13 +18,13 @@
 }
 
 .totalPrice {
-    background: #141414;
     border-radius: 1em;
     font-weight: bold;
 }
 
 .purchaseControl {
-    background-color: #141414;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     padding: 1em;
     color: white;
 }
@@ -31,4 +32,23 @@
 .purchaseControl > * {
     margin: 0;
     padding: 0;
+}
+
+.Null {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Null > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.Null i {
+    transform: scale(1.5)
 }
