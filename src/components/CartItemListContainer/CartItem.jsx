@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { Contexto } from "../../Context/Context";
+
 export default function CartItem({id, category, description, price, title, amount}) {
+
     return (
         <article className="DetailCartItem rounded">
             <div className="TitleDetalCartItem position-relative d-flex align-items-center justify-content-between bg-danger text-white p-3 rounded-top">

@@ -7,8 +7,7 @@ import "./style.css"
 export default function CartWidget() {
 
     const count = useContext(Contexto).count
-    console.log(count)
-
+    
     return (
         <li className="cartNotification">
             <NavLink to="cart">

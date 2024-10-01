@@ -1,11 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Contexto } from "../../Context/Context";
 import CartItemList from "./CartItemList";
 
 export default function CartItemListContainer() {
 
     const items = useContext(Contexto).count;
-    console.log(items)
 
     let newList = [];
     for (let i = 0; i < items.length; i++) {

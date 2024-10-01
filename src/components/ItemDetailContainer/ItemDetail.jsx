@@ -4,7 +4,6 @@ import { Contexto } from "../../Context/Context";
 export default function ItemDetail({item}) {
 
     const { AddItemToCart } = useContext(Contexto);
-    console.log(useContext(Contexto))
 
     const { id, title, price, category, description, image } = item;
 
