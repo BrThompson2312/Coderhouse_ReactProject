@@ -1,18 +1,21 @@
-// Context
 import { useContext } from "react";
 import { Contexto } from "../../Context/Context";
-// Images
-import cart from '../../imgs/carrito.svg';
+import imagenCarrito from '../../imgs/carrito.svg';
+import { NavLink } from "react-router-dom";
+import "./style.css"
 
 export default function CartWidget() {
 
-    const cartLength = useContext(Contexto).Cart.length
+    const count = useContext(Contexto).count
+    console.log(count)
 
     return (
-        <>
-            <img src={cart} alt="imgCarrito"/>
-            <p className="m-0">Cart</p>
-            <span>{cartLength}</span>
-        </>
+        <li className="cartNotification">
+            <NavLink>
+                <img src={imagenCarrito} alt="imgCarrito"/>
+                <p className="m-0">Cart</p>
+                <span>{count.length}</span>
+            </NavLink>
+        </li>
     )
 }

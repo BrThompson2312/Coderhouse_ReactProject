@@ -13,7 +13,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 export default function ItemDetailContainer() {
 
     const [ loading, setLoading ] = useState(true);
-    const [ item, setItem ] = useState([]);
+    const [ item, setItem ] = useState({});
     const [ error, setError ] = useState(false);
 
     const params = useParams();
@@ -25,7 +25,9 @@ export default function ItemDetailContainer() {
         .then((snapshot) => {
             for (let i = 0; i < snapshot.docs.length; i++) {
                 if (snapshot.docs[i].id == params.itemId) {
-                    setItem(snapshot.docs[i].data()); break;
+                    setItem(
+                        {id: snapshot.docs[i].id, ...snapshot.docs[i].data()}
+                    ); break;
                 }
             }
             setLoading(false);

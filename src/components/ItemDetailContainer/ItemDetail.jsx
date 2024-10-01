@@ -1,13 +1,13 @@
-// Context
 import { useContext } from "react";
 import { Contexto } from "../../Context/Context";
 
 export default function ItemDetail({item}) {
 
+    const { AddItemToCart } = useContext(Contexto);
     console.log(useContext(Contexto))
 
     const { id, title, price, category, description, image } = item;
-    
+
     return (
         <article className="detailProduct">
             <div>
@@ -23,7 +23,17 @@ export default function ItemDetail({item}) {
                 </div>
             </div>
             <div>
-                <button onClick={useContext(Contexto).AddCount} className="btn bg-success text-white">Agregar al carrito</button>
+                <button onClick={() => {
+                    AddItemToCart(
+                        {
+                            id: id,
+                            title: title,
+                            price: price,
+                            category: category,
+                            description: description
+                        }
+                    )
+                }} className="btn bg-success text-white">Agregar al carrito</button>
             </div>
         </article>
     )

@@ -14,7 +14,6 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 export default function Navbar() {
 
-    // const {nombre} = useContext(Contexto)
     console.log(useContext(Contexto))
 
     let categories = [];

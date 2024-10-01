@@ -1,5 +1,5 @@
 // Context
-import Context from "./Context/Context";
+import ContextoProvider from "./Context/Context";
 // Components
 import Component from "./components/BrowserRouter/Component";
 import Navbar from "./components/NavBar/NavBar";
@@ -9,10 +9,10 @@ import "./App.css";
 
 export default function App() {
     return (
-        <Context>
+        <ContextoProvider>
             <Navbar/>
             <Component />
             <Footer />
-        </Context>
+        </ContextoProvider>
     )
 }

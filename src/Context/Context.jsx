@@ -1,30 +1,19 @@
-import React from "react";
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 
 export const Contexto = createContext();
 
-const miInfo = [{
-    nombre: "Bruno",
-}]
-const Cart = [
-    {
-        nombre: ""
-    },
-    {
-        nombre: ""
-    },
-    {
-        nombre: ""
-    },
-];
-
+let cat = [];
 export default function Context({children}) {
-    const [ count, setCount ] = useState(0);
-    function AddCount() {
-        setCount(count => count + 1);
+
+    const [ count, setCount ] = useState([]);
+
+    const AddItemToCart = (obj) => {
+        cat.push(obj);
+        setCount([...cat]);
     }
+
     return (
-        <Contexto.Provider value={{miInfo, Cart, count, AddCount}}>
+        <Contexto.Provider value={{count, setCount, AddItemToCart}}>
             {children}
         </Contexto.Provider>
     )

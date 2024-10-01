@@ -24,7 +24,7 @@ export default function ItemListContainer() {
 
         getDocs(itemsCollection)
         .then((snapshot) => {
-            setItems(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+            setItems(snapshot.docs.map( (doc) => ({id: doc.id, ...doc.data()} )))
             setLoading(false);
         })
         .catch(() => {

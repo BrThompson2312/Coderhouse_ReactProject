@@ -8,19 +8,7 @@
     transition: all .3s;
 }
 
-.NavBar ul li a:hover {
-    color: red;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: all .3s;
-}
 
-.cartNotification a span {
-    background-color: darkred;
-    border-radius: 10px;
-    position: relative;
-    padding: 0px 5px 0px 5px;
-}
 
 .NavBar ul li a img {
     width: 20px;
