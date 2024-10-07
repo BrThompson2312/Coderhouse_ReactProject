@@ -1,0 +1,53 @@
+1. Convenciones
+ÓPTIMO: Respeta todas las convenciones propuestas y lo hace en todas las instancias según lo propuesto. Es consistente con sus declaraciones del readme. Trata de afiliarse a las convenciones del ecosistema de React. Presenta un linting consistente con espaciados que favorezcan la lectura en todo el proyecto. No se deja comentarios, debuggers, o TODO’s olvidados. No deja piezas de código inutilizadas, no referenciadas o sin sentido.
+
+CORRECTO: Respeta algunas convenciones pero aunque sea posible detectar algunos buenos usos, todavía no lo hace de manera consistente. Mantiene todos los componentes en distintos directorios con sus respectivos styles (si lo hace distinto deja en claro su approach en el readme). Puede tener algunos temas leves de consistencia. Puede dejar algunas piezas no utilizadas o comentarios extra.
+
+BAJO: No respeta camelCase para eventos. No respeta Pascal Case para Componentes. No mantiene consistencia en el scaffolding (pone context en un component scope o al revés). Publica node_modules.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
+
+2. Container patterns
+ÓPTIMO: Agrupa múltiples props de manera entendible y consistente bajo la consideración de respetar sus entidades. Respeta namings a lo largo de la aplicación. No agrega fetches extra dentro de los dummy components / componentes representacionales.
+
+CORRECTO: Divide los patrones, no mezcla data-fetching / data-rendering. Puede presentar fricciones en el pasaje de props. Puede no tener fallbacks o muestra el componente incompleto antes de tener la información (siempre y cuando no implemente skeletons). Un re-fetch en el container actualiza el child render.
+
+BAJO: No realiza distinciones / sub-clasificaciones y desarrolla obtención y renderings en el mismo archivo.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
+
+3. Navegabilidad
+ÓPTIMO: Respeta las convenciones y los routings. Puede implementar patrones adicionales. Ejecuta navegaciones programáticas. Utiliza NavLinks para ubicar al usuario y les da un styling que valide que ya está en una ruta. Si ya se encuentra en una ruta y navega a la misma ruta no re-ejecuta llamados. Respeta las convenciones de naming. Separa el key / id de categoría de su respectiva descripción internacionalizada.
+
+CORRECTO: Logra navegar a cada ruta separada y logra navegabilidad de catálogo a detalle y viceversa sin reload de context o app. Ajusta correctamente los effects con los hooks de react router. Evita dismounts al saltar entre rutas similares ítem/1 -> item/2 los cuales efectúan re-fetches a firestore. No genera un componente custom para apuntar el categoryId.
+
+BAJO: No puede acceder directamente a las rutas de categorías / item by id. Las navegaciones destruyen el estado del context. No implementa el browser router. Escribe en duro las categorías en los routes o repite links. No respeta el principio de que la home tiene el catálogo.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
+
+4. Catálogo y Detalle
+ÓPTIMO: Filtra por categorías implementando correctamente el useParams(:catId), y aprovecha un useEeffect para detectar sus cambios de ruta y vuelve a disparar las tareas asincrónicas. Separa correctamente las responsabilidades. Toda la información solicitada se muestra. Usa loaders. No sobre-optimiza y se mantiene simple.
+
+CORRECTO: Separa correctamente las responsabilidades e implementa las promises, pero todavía no hace un uso eficiente de las props. No filtra por categorías. Separa correctamente las responsabilidades e implementa las promises, pero todavía no hace un uso eficiente de las props. Utiliza .doc() para realizar el fetching de un único documento. Genera algunas optimizaciones tempranas (negativo). Puede faltar algún dato (usar solo descripcion o solo titulo, ú olvidarse el precio, pero no todos).
+
+BAJO: No se visualiza el título o no muestra alguna referencia legible al producto. No separa el detalle del container. Utiliza where() para obtener un único documento. No funciona el counter, no respeta los límites o no emite el evento a su parent onAdd. Faltan más de la mitad de los elementos visuales requeridos.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
+
+5. CartProvider / CartContext
+ÓPTIMO: Mantiene las responsabilidades limpias. No lleva cosas de UI al context No genera subestados para guardar totalizaciones o counts / summary. Puede crear otras variaciones de las sub-funcionalidades y adicionar funciones simples que mantienen la consistencia con el resto.
+
+CORRECTO: Lleva las rutinas de cálculos de costos y precio dentro del context Puede tratar de guardar el precio y las cantidades en algún estado interno del context aunque no es necesario. No entremezcla conceptos con el Context aunque tampoco aprovecha su potencial Puede presentar alguna fricción menor / sobre-complejización de los procesos de add / remove / clear.
+
+BAJO: Realiza cálculos de precio / stock / otros, fuera del contexto o en componentes, evitando la centralización de la fuente de verdad. Trata de llevar parte del flow de checkout o lógicas del formulario al context. Mueve cosas al Context que no son necesarias o le remueven el sentido de la responsabilidad. Asigna al cart context responsabilidades de fetching de datos.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
+
+6. CartWidget y Cart
+ÓPTIMO: No hay lógicas de cálculo de cantidades dentro del widget . Puede separar el widget del rendering del icon. Aparte de dividir responsabilidades es capaz de desarrollar un flow claro y reactivo de deshabilitación de campos. Valida correctamente los inputs y sus tipos de datos. No utiliza recursos como alert o nativos del browser manteniendo el feedback en el componente. Después de realizar la compra deja el cart y otros componentes en un estado consistente.
+
+CORRECTO: El widget sincroniza las cantidades correctas. El widget está conectado y sincronizado con los eventos de add en catálogo y “remover” desde el cart. El widget permite navegar al cart. Divide responsabilidades a través de eventos / props y múltiples componentes (elementos agregados, form, botón). Puede presentar algunas redundancias o guardados de estados innecesarios. Puede generar algunos cálculos que deberían ir dentro cart dentro de Cart.js.
+
+BAJO: No incluye widget o realiza un widget que no está conectado al contexto. El widget presenta problemas de sincronización. Dificultades de división de responsabilidades: hace todo en un mismo componente (form, escritura en firestore y display). Si borra todos los items le queda el formulario activo o no brinda feedback volver al catálogo por la carencia de artículos.
+
+NULO: No es posible corregir este criterio pues no se encuentra en el Proyecto Final.
