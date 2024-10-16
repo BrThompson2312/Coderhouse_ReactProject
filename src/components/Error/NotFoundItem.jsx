@@ -1,6 +1,6 @@
 import "./style.css";
 
-export default function Error() {
+export default function NotFoundItem() {
     return (
         <>
             <div className="Error">
@@ -8,7 +8,7 @@ export default function Error() {
                     <i className="fa-solid fa-circle-exclamation"></i>
                     <h3>Error</h3>
                 </div>
-                <p>Error en la solicitud de datos</p>
+                <p>Parece que el articulo que buscas no está disponible</p>
             </div>
         </>
     )

@@ -1,25 +1,24 @@
 import CartItem from "./CartItem";
-import Null from "./Null";
+import CartEmpty from "./CartEmpty";
 import ButtonBuy from "./ButtonBuy";
 import "./style.css"
 
-export default function CartItemList({items, totalPrice}) {
-
+export default function CartItemList({items, totalprice}) {
+    console.log(items)
     return (
         <div className="CartList">
             {
                 items.map((el) => {
                     return (
-                        <CartItem key={el.id} id={el.id} category={el.category} description={el.description} price={el.price} title={el.title} amount={el.amount} totalPrice={totalPrice}/>
+                        <CartItem key={el.id} props={el}/>
                     )
                 })
             }
             {
                 items.length == 0 
-                ? <Null />
-                : <ButtonBuy totalPrice={totalPrice}/>
+                ? <CartEmpty />
+                : <ButtonBuy totalprice={totalprice}/>
             }
-            
         </div>
     )
 }

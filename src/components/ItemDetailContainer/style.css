@@ -2,7 +2,49 @@
     color: darkred;
     font-weight: bold;
 }
-
-.ItemDetailContainer img {
+.detailProduct {
+    background-color: white;
+    border-radius: 0em 0em 0em 1em;
+    border-left: 0.5em solid black;
+    border-bottom: 1em solid black;
+    margin-top: 1em;
+}
+.productDescription {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+.productDescription h1 {
+    border-bottom: 5px solid darkred;
+    margin: 0;
+    padding: 7px 0px 0px 7px;
+}
+.productDescription figure {
+    width: 50%;
+    margin: 0 auto;
+}
+.productDescription figure img {
     width: 200px;
+    object-fit: contain;
+    aspect-ratio: 16/9
+}
+.productDescription table {
+    margin-bottom: 1em;
+}
+.productDescription table td {
+    padding: 1em;
+}
+.productDescription table th { 
+    background: darkred;
+}
+.productDescription table th span {
+    color: white;
+    padding: 1em;
+} 
+.ItemQuantitySelector {
+    font-weight: bold;
+}
+.AddToCart {
+    border-radius: 0 1em 0 0;
 }

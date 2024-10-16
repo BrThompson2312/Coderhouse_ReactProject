@@ -9,38 +9,46 @@ import { useEffect, useState } from "react";
 import "./style.css";
 // Firebase modules
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+// Context
+import { Contexto } from "../../Context/Context"
+import { useContext } from 'react';
 
 export default function ItemListContainer() {
 
-    const [ loading, setLoading ] = useState(true);
-    const [ items, setItems ] = useState([]);
-    const [ error, setError ] = useState(false);
+    const { items, error, loading } = useContext(Contexto);
+
+    // const [ loading, setLoading ] = useState(true);
+    // const [ items, setItems ] = useState([]);
+    // const [ error, setError ] = useState(false);
 
     const params = useParams();
 
-    useEffect(() => {
-        const bd = getFirestore();
-        const itemsCollection = collection(bd, "items");
+    // useEffect(() => {
+    //     const bd = getFirestore();
+    //     const itemsCollection = collection(bd, "items");
 
-        getDocs(itemsCollection)
-        .then((snapshot) => {
-            setItems(snapshot.docs.map( (doc) => ({id: doc.id, ...doc.data()} )))
-            setLoading(false);
-        })
-        .catch(() => {
-            setError(true);
-        })
-    }, []);
+    //     getDocs(itemsCollection)
+    //     .then((snapshot) => {
+    //         setItems(snapshot.docs.map( (doc) => ({id: doc.id, ...doc.data()} )))
+    //         setLoading(false);
+    //     })
+    //     .catch(() => {
+    //         setError(true);
+    //     })
+    // }, []);
 
     return (
-        <section className="">
-            <h1>Catálogo</h1>
+        <section>
             {
                 error 
                 ? <Error />
                 : loading 
                     ? <Loader /> 
-                    : <ItemList filteredCategory={params} items={items} />
+                    : 
+                    <>
+                        <h1>Catalog</h1>
+                        <ItemList filteredCategory={params} items={items} />
+                    </>
             }
         </section>
     )

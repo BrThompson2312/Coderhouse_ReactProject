@@ -9,20 +9,9 @@ body {
     background-image: url("imgs/bg.png");
 }
 
-header {
-    background: #141414;
-}
-
-.brand a {
-    text-decoration: none;
-}
-
-.containerItems {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
-    justify-content: center;
-}
-
-.container {
-    margin-bottom: 4em;
+.Error404 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

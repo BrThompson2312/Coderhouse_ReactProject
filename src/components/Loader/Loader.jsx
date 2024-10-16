@@ -3,6 +3,9 @@ import "./style.css";
 export default function Loader()
 {
     return (
-        <i className="loader fa-solid fa-spinner"></i>
+        <div className="loader">
+            <h3>Loading</h3>
+            <i className="fa-solid fa-spinner"></i>
+        </div>
     )
 }

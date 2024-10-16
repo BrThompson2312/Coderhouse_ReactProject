@@ -2,15 +2,26 @@
     margin-bottom: 1em;
 }
 
+.PurchaseControl {
+    background: linear-gradient(to left, #198754 30%, #0e5735 70%);
+}
+
+.DetailCartItem figure {
+    border-left: 5px solid rgb(238, 172, 6);
+    padding: 0 1em 0 1em;
+    margin-bottom: 0;
+}
+
+.DetailCartItem figure img {
+    width: 200px;
+    object-fit: contain;
+    aspect-ratio: 16/9;
+}
+
 .DetailCartItem p {
     margin: 0;
     padding: 0.8em;
-    background: #e0c7c7;
 }
-
-/* .DetailCartItem p:first-child {
-    border-radius: 10px 10px 0px 0px
-} */
 
 .DetailCartItem p:last-child {
     border-radius: 0px 0px 10px 10px
@@ -19,18 +30,6 @@
 .totalPrice {
     border-radius: 1em;
     font-weight: bold;
-}
-
-.purchaseControl {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: 1em;
-    color: white;
-}
-
-.purchaseControl > * {
-    margin: 0;
-    padding: 0;
 }
 
 .Null {
@@ -50,6 +49,10 @@
 
 .Null i {
     transform: scale(1.5)
+}
+
+.TitleDetalCartItem {
+    border-bottom: 5px solid #0d6efd;
 }
 
 .TitleDetailCartItem i {
@@ -72,5 +75,3 @@
         color: white;
     }
 }
-
-

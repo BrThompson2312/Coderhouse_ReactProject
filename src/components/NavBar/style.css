@@ -1,5 +1,17 @@
+header {
+    background: rgb(0, 119, 255);
+}
+
 .NavBar {
-    background: #343434
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.NavBar ul li a:hover {
+    color: rgba(0, 225, 255, 0.623);
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all .3s;
 }
 
 .NavBar ul li a {
@@ -7,8 +19,6 @@
     text-decoration: none;
     transition: all .3s;
 }
-
-
 
 .NavBar ul li a img {
     width: 20px;
@@ -23,6 +33,21 @@
 }
 
 .ItemCategories {
-    background-color: #343434;
     font-size: 1.2em;
+}
+
+.ItemCategories ul {
+    border-bottom: 5px solid rgb(0, 119, 255);
+    font-weight: bold;
+    margin: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.ItemCategories ul li {
+    white-space: nowrap;
+}
+
+.brand a {
+    text-decoration: none;
 }

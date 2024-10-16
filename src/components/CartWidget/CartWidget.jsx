@@ -6,15 +6,19 @@ import "./style.css"
 
 export default function CartWidget() {
 
-    const count = useContext(Contexto).count
+    const count = useContext(Contexto).cart
     
     return (
-        <li className="cartNotification">
+        <>
             <NavLink to="cart">
                 <img src={imagenCarrito} alt="imgCarrito"/>
                 <p className="m-0">Cart</p>
-                <span>{count.length}</span>
+                {
+                    count.length == 0
+                    ? <span></span>
+                    : <span>{count.length}</span> 
+                }
             </NavLink>
-        </li>
+        </>
     )
 }

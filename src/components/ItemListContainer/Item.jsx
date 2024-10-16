@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 
-export default function Item({id, image, title}) {
+export default function Item({items}) {
+
+    const { id, image, title, price, description, category } = items;
 
     return (
-        <article className="Item d-flex justify-content-between flex-column border rounded">
+        <article className="Item d-flex align-items-center">
             <img src={image} alt={title}/>
-            <div className="border-5 rounded">
-                <h6 className="text-black p-1 m-0">{title}</h6>
-                <button className="bg-dark btn w-100 rounded-0">
-                    <NavLink to={`/item/${id}`} className="text-white text-decoration-none">Mas info</NavLink>
+            <div className="border-5 rounded d-flex align-items-center gap-2">
+                <h6>{title}</h6>
+                <h6 className="price">${price}</h6>
+                <button className="bg-primary btn rounded">
+                    <NavLink to={`/item/${id}`} className="text-white text-decoration-none">See details</NavLink>
                 </button>
             </div>
         </article>

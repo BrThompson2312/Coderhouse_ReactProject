@@ -2,6 +2,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+}
+
+.loader i {
     animation: loading .3s linear infinite;
 }
 

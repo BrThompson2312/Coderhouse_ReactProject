@@ -12,7 +12,7 @@ export default function ItemList({filteredCategory, items}) {
                 items.map((el) => {
                     if (category(el)) {
                         return (
-                            <Item key={el.id} id={el.id} image={el.image} title={el.title}/>
+                            <Item key={el.id} items={el}/>
                         )
                     }
                 })

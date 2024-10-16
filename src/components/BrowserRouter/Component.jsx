@@ -1,6 +1,5 @@
 // Pages
-import Cart from "../../pages/Cart";
-import Error  from "../../pages/Error";
+import Error  from "../../pages/Error404";
 import Layout from "../../pages/Layout";
 // Components
 import ItemListContainer    from "../ItemListContainer/ItemListContainer";

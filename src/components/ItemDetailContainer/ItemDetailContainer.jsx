@@ -1,41 +1,34 @@
 // Components
 import ItemDetail from "./ItemDetail";
 import Loader from "../Loader/Loader";
-import Error from "../Error/Error";
+import Error from "../Error/NotFoundItem";
 // Methods
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 // Styles
 import "./style.css";
-// Firebase modules
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+// Context
+import { Contexto } from "../../Context/Context";
 
 export default function ItemDetailContainer() {
 
     const [ loading, setLoading ] = useState(true);
     const [ item, setItem ] = useState({});
     const [ error, setError ] = useState(false);
-
     const params = useParams();
 
+    const { items } = useContext(Contexto);
+
     useEffect(() => {
-        const bd = getFirestore();
-        const itemsCollection = collection(bd, "items");
-        getDocs(itemsCollection)
-        .then((snapshot) => {
-            for (let i = 0; i < snapshot.docs.length; i++) {
-                if (snapshot.docs[i].id == params.itemId) {
-                    setItem(
-                        {id: snapshot.docs[i].id, ...snapshot.docs[i].data()}
-                    ); break;
-                }
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].id == params.itemId) {
+                setItem({...items[i]});
+                setLoading(false);
+                return;
             }
-            setLoading(false);
-        })
-        .catch(() => {
-            setError(true);
-        })
-    }, []);
+        }
+        if (items.length != 0) setError(true);
+    }, [items])
 
     return (
         <article className="ItemDetailContainer">
@@ -45,7 +38,7 @@ export default function ItemDetailContainer() {
                 : 
                     loading 
                     ? <Loader /> 
-                    : <ItemDetail item={item}/> 
+                    : <ItemDetail item={item}/>
             }
         </article>
     )
